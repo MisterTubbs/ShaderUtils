@@ -12,8 +12,8 @@ import static org.lwjgl.opengl.GL20.glGetShaderi;
 import static org.lwjgl.opengl.GL20.glShaderSource;
 
 import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 
 public class Shader {
 	
@@ -35,7 +35,7 @@ public class Shader {
 		StringBuilder fSource = new StringBuilder();
 		
 		try{
-			BufferedReader reader = new BufferedReader(new FileReader(vertexLoc));
+			BufferedReader reader = new BufferedReader(new InputStreamReader(Shader.class.getResourceAsStream(vertexLoc)));
 			String line;
 			while((line = reader.readLine()) != null){
 				vSource.append(line).append('\n');
@@ -47,7 +47,7 @@ public class Shader {
 		}
 		
 		try{
-			BufferedReader reader = new BufferedReader(new FileReader(fragmentLoc));
+			BufferedReader reader = new BufferedReader(new InputStreamReader(Shader.class.getResourceAsStream(fragmentLoc)));
 			String line;
 			while((line = reader.readLine()) != null){
 				fSource.append(line).append('\n');

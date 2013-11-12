@@ -33,5 +33,9 @@ public class ShaderProgram {
 	public void dispose(){
 		glDeleteProgram(program);
 	}
+
+	public int getProgram() {
+		return program;
+	}
 	
 }
